@@ -1,16 +1,17 @@
 *** Settings ***
-Library         Selenium2Library
-Test Setup      เปิด Browser
-Suite Setup     Log to console  Hello World
-Suite Teardown  Log to console  Goodbye!!!
-*** Variables ***
-${URL}  https://pantip.com/
-${MESSAGE}  I'm working
-*** Keywords ***
-เปิด Browser
-  Open Browser  ${URL}
-  Log to console  ${MESSAGE}
-*** Test Cases ***
-Tag click
-  Click Element  //*[@id="main-body-content"]/div[1]/div/div/div[2]/ul[1]/li[3]/a
-  Location Should Be  https://pantip.com/tags
+Library    SeleniumLibrary
+Library    BuiltIn
+Library    String
+Suite Teardown     Close Browser
+*** Variable ***
+${url_facebook}        https://www.facebook.com
+${title_facebook}      Facebook - เข้าสู่ระบบหรือสมัครใช้งาน
+${input_user}          //*[@id="email"]
+${input_pass}          //*[@id="pass"]
+${btn_login}           //*[@class="uiButton uiButtonConfirm"]
+${txt_not_me}          //*[@id="not_me_link"]
+${txt_message}         //div//textarea[@name="xhpc_message"]
+${username_fail}            xxxxx@xxxxx.com
+${password_fail}            12345678
+${username_success}            iamgique@iamgique.com
+${password_success}            iamgique@iamgique.com
