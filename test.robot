@@ -8,6 +8,6 @@ ${BROWSER} chrome
 Open Browser
   Open Browser  ${HOMEPAGE}  ${BROWSER}
 *** Test Cases ***
-  Go To homepage
-  Open Browser ${HOMEPAGE} ${BROWSER}
+Go To homepage
+  Location Should Be ${HOMEPAGE}
 
