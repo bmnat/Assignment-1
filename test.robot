@@ -13,6 +13,6 @@ ${MESSAGE}  I'm working
   Open Browser  ${URL}  ${BROWSER}
   Log to console  ${MESSAGE}
 *** Test Cases ***
-กดปุ่ม แท็ก
+Tag click
   Click Element  //*[@id="main-body-content"]/div[1]/div/div/div[2]/ul[1]/li[3]/a
   Location Should Be  https://pantip.com/tags
