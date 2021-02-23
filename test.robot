@@ -1,6 +1,6 @@
 *** Settings ***
 Library SeleniumLibrary
-Test Setup      Open Browser
+
 ***Keyword***
 Open Browser
   Open Browser http://www.google.com
