@@ -1,54 +1,19 @@
+
 *** Settings ***
-Library    SeleniumLibrary
-Library    BuiltIn
-Library    String
-Suite Teardown     Close Browser
-*** Variable ***
-${url_facebook}        https://www.facebook.com
-${title_facebook}      Facebook - เข้าสู่ระบบหรือสมัครใช้งาน
-${input_user}          //*[@id="email"]
-${input_pass}          //*[@id="pass"]
-${btn_login}           //*[@class="uiButton uiButtonConfirm"]
-${txt_not_me}          //*[@id="not_me_link"]
-${txt_message}         //div//textarea[@name="xhpc_message"]
-${username_fail}            xxxxx@xxxxx.com
-${password_fail}            12345678
-${username_success}            iamgique@iamgique.com
-${password_success}            iamgique@iamgique.com
+Library         Selenium2Library
+Test Setup      เปิด Browser
+Test Teardown   Close All Browsers
+Suite Setup     Log to console  Hello World
+Suite Teardown  Log to console  Goodbye!!!
+*** Variables ***
+${URL}  https://pantip.com/
+${BROWSER}  gc
+${MESSAGE}  I'm working
 *** Keywords ***
-Verify facebook page
-    [Arguments]                ${title}
-    Title Should Be            ${title}
-Input Username and Password
-     [Arguments]      ${xpath_user}       ${xpath_pass}     ${username}       ${password}
-     Element Should Be Visible    ${xpath_user}
-     Element Should Be Visible    ${xpath_pass}
-     Input Text       ${xpath_user}       ${username}
-     Input Text       ${xpath_pass}       ${password}
-Click Button Login
-     [Arguments]       ${btn}
-     Element Should Be Visible    ${btn}
-     Click Element        ${btn}
-Verify Login Fail
-   [Arguments]        ${xpath}
-   Element Should Be Visible        ${xpath}
-Verify Login Success
-   [Arguments]        ${xpath}
-   Element Should Be Visible        ${xpath}
-   *** Test Cases ***
-Login facebook - Fail
-    [tags]    fail
-    Open Browser    about:blank    chrome
-    Go To           ${url_facebook}
-    Verify facebook page           ${title_facebook}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail}      ${password_fail}
-    Click Button Login          ${btn_login}
-    Verify Login Fail           ${txt_not_me}
-Login facebook - success
-    [tags]    success
-    Open Browser    about:blank    chrome
-    Go To           ${url_facebook}
-    Verify facebook page           ${title_facebook}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_success}      ${password_success}
-    Click Button Login          ${btn_login}
-    Verify Login Success           ${txt_message}
+เปิด Browser
+  Open Browser  ${URL}  ${BROWSER}
+  Log to console  ${MESSAGE}
+*** Test Cases ***
+กดปุ่ม แท็ก
+  Click Element  //*[@id="main-body-content"]/div[1]/div/div/div[2]/ul[1]/li[3]/a
+  Location Should Be  https://pantip.com/tags
