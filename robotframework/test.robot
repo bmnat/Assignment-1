@@ -10,7 +10,7 @@ ${BROWSER}        Chrome
 
 *** Test Cases ***
 
-Open Lucky Draw Registration 4
+Open
     Open Browser    ${LOGIN URL}    ${BROWSER}
 
 location
