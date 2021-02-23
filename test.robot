@@ -15,3 +15,40 @@ ${username_fail}            xxxxx@xxxxx.com
 ${password_fail}            12345678
 ${username_success}            iamgique@iamgique.com
 ${password_success}            iamgique@iamgique.com
+*** Keywords ***
+Verify facebook page
+    [Arguments]                ${title}
+    Title Should Be            ${title}
+Input Username and Password
+     [Arguments]      ${xpath_user}       ${xpath_pass}     ${username}       ${password}
+     Element Should Be Visible    ${xpath_user}
+     Element Should Be Visible    ${xpath_pass}
+     Input Text       ${xpath_user}       ${username}
+     Input Text       ${xpath_pass}       ${password}
+Click Button Login
+     [Arguments]       ${btn}
+     Element Should Be Visible    ${btn}
+     Click Element        ${btn}
+Verify Login Fail
+   [Arguments]        ${xpath}
+   Element Should Be Visible        ${xpath}
+Verify Login Success
+   [Arguments]        ${xpath}
+   Element Should Be Visible        ${xpath}
+   *** Test Cases ***
+Login facebook - Fail
+    [tags]    fail
+    Open Browser    about:blank    chrome
+    Go To           ${url_facebook}
+    Verify facebook page           ${title_facebook}
+    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail}      ${password_fail}
+    Click Button Login          ${btn_login}
+    Verify Login Fail           ${txt_not_me}
+Login facebook - success
+    [tags]    success
+    Open Browser    about:blank    chrome
+    Go To           ${url_facebook}
+    Verify facebook page           ${title_facebook}
+    Input Username and Password    ${input_user}     ${input_pass}       ${username_success}      ${password_success}
+    Click Button Login          ${btn_login}
+    Verify Login Success           ${txt_message}
