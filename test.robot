@@ -5,8 +5,9 @@ Test Setup      Open Browser
 ${HOMEPAGE} http://www.google.com
 ${BROWSER} chrome
 ***Keyword***
-Open Browser  ${HOMEPAGE}  ${BROWSER}
+Open Browser
+  Open Browser  ${HOMEPAGE}  ${BROWSER}
 *** Test Cases ***
- Go To homepage
+  Go To homepage
   Open Browser ${HOMEPAGE} ${BROWSER}
 
