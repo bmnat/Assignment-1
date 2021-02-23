@@ -10,7 +10,7 @@ ${URL}  https://pantip.com/
 ${BROWSER}  gc
 ${MESSAGE}  I'm working
 *** Keywords ***
-Browser
+Open Browser
   Open Browser  ${URL}  ${BROWSER}
   Log to console  ${MESSAGE}
 *** Test Cases ***
