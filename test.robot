@@ -1,16 +1,14 @@
 *** Settings ***
 Library         Selenium2Library
 Test Setup      เปิด Browser
-Test Teardown   Close All Browsers
 Suite Setup     Log to console  Hello World
 Suite Teardown  Log to console  Goodbye!!!
 *** Variables ***
 ${URL}  https://pantip.com/
-${BROWSER}  gc
 ${MESSAGE}  I'm working
 *** Keywords ***
 เปิด Browser
-  Open Browser  ${URL}  ${BROWSER}
+  Open Browser  ${URL}
   Log to console  ${MESSAGE}
 *** Test Cases ***
 Tag click
