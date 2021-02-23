@@ -1,7 +1,7 @@
 
 *** Settings ***
 Library         Selenium2Library
-Test Setup      เปิด Browser
+Test Setup      Open Browser
 Test Teardown   Close All Browsers
 Suite Setup     Log to console  Hello World
 Suite Teardown  Log to console  Goodbye!!!
