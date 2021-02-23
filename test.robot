@@ -9,5 +9,5 @@ Open Browser
   Open Browser  ${HOMEPAGE}  ${BROWSER}
 *** Test Cases ***
 Go To homepage
-  Location Should Be ${HOMEPAGE}
+  Location Should Be http://www.google.com
 
